@@ -57,6 +57,9 @@ static int ensure_capacity(void) {
 
 /* Shrink the registry with realloc when there is a lot of spare room. */
 static void shrink_capacity_if_needed(void) {
+    if (registry.capacity < INITIAL_CAPACITY + CAPACITY_STEP)
+        return;
+
     size_t new_capacity = registry.capacity - CAPACITY_STEP;
     if (new_capacity < INITIAL_CAPACITY || registry.size > new_capacity)
         return;
@@ -257,7 +260,11 @@ void delete_student(void) {
 }
 
 void exit_program(void) {
-    printf("\nReleasing all dynamically allocated memory...\n");
+    printf("\n");
+    if (confirm("Save records to file before exiting"))
+        save_records();
+
+    printf("Releasing all dynamically allocated memory...\n");
     free_registry();
     printf("Memory freed. Goodbye!\n");
     exit(EXIT_SUCCESS);

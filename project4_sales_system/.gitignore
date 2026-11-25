@@ -1,0 +1,4 @@
+build/
+sales_system
+sales_system.exe
+*.o

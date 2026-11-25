@@ -12,6 +12,7 @@ int course_passed(const Course *c) {
     return c->marks * 100.0f >= PASS_PERCENT * c->max_marks;
 }
 
+/* Student average % = sum(marks) / sum(max marks) * 100. Returns 0 if there are no courses. */
 int calculate_student_average(const Student *s, float *out_percent) {
     if (s->course_count == 0)
         return 0;
@@ -49,6 +50,7 @@ static Student *prompt_for_student(void) {
     return s;
 }
 
+/* Read a course code: letters and digits only, shorter than MAX_CODE. */
 static int read_course_code(const char *prompt, char *out) {
     char buf[64];
     for (;;) {

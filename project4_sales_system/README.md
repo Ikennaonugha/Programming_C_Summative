@@ -39,9 +39,6 @@ sales-system/
 ├── src/                Implementation (one .c file per header, plus main.c)
 ├── data/
 │   └── transactions.txt   Sample records (12 transactions), loaded at start-up
-├── docs/
-│   ├── sample_run_input.txt    Keystrokes used for the demonstration run
-│   └── sample_run_output.txt   Full program output (evidence)
 └── Makefile
 ```
 

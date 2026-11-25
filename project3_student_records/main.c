@@ -14,6 +14,9 @@ int main(void) {
         {"View student details",         view_student},
         {"Update student information",   update_student},
         {"Delete a student record",      delete_student},
+        {"Add a course to a student",    add_course},
+        {"Update marks for a course",    update_marks},
+        {"Display student performance",  display_student_performance},
         {"Exit program",                 exit_program}
     };
     const size_t menu_size = sizeof menu / sizeof menu[0];

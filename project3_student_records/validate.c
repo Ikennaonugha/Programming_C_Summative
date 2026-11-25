@@ -126,6 +126,7 @@ int confirm(const char *prompt) {
     char buf[8];
     for (;;) {
         printf("%s (y/n): ", prompt);
+        fflush(stdout);
         if (!read_line(NULL, buf, sizeof buf))
             return 0;
         trim_whitespace(buf);

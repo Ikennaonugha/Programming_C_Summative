@@ -67,11 +67,8 @@ static void shrink_capacity_if_needed(void) {
         registry.capacity = new_capacity;
     }
 }
-/*
- * Find a student by ID using pointer traversal.
- * Returns the student, or NULL if not found. If index_out is not NULL it
- * receives the student's position in the registry.
- */
+
+/* Find a student by ID using pointer traversal. */
 Student *find_student_by_id(int id, size_t *index_out) {
     for (Student **p = registry.data; p < registry.data + registry.size; p++) {
         if ((*p)->id == id) {

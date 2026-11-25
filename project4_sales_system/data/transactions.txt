@@ -1,0 +1,13 @@
+# id|product|quantity|unit_price|date
+1001|Rice (50kg bag)|3|78500.0000|2026-10-02
+1002|Vegetable Oil 5L|10|9800.0000|2026-10-03
+1003|Indomie Carton|25|6200.0000|2026-10-05
+1004|Sugar (50kg bag)|2|82000.0000|2026-10-07
+1005|Bottled Water Pack|40|1800.0000|2026-10-09
+1006|Rice (50kg bag)|1|78500.0000|2026-10-12
+1007|Tomato Paste Carton|12|7400.0000|2026-10-15
+1008|Vegetable Oil 5L|6|9800.0000|2026-10-18
+1009|Indomie Carton|8|6200.0000|2026-10-21
+1010|Beans (25kg bag)|4|43000.0000|2026-10-25
+1011|Bottled Water Pack|15|1800.0000|2026-11-02
+1012|Sugar (50kg bag)|1|82000.0000|2026-11-06

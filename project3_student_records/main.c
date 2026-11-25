@@ -1,5 +1,6 @@
 #include "student.h"
 
+/* One menu entry: the label shown to the user and the function it runs. */
 typedef struct {
     const char   *label;
     OperationFunc func;
@@ -8,6 +9,8 @@ typedef struct {
 int main(void) {
     if (!init_registry())
         return EXIT_FAILURE;
+
+    /* Jump table: menu choices map to functions through function pointers. */
     const MenuItem menu[] = {
         {"Register a new student",       register_student},
         {"Display all students",         display_students},
@@ -17,6 +20,10 @@ int main(void) {
         {"Add a course to a student",    add_course},
         {"Update marks for a course",    update_marks},
         {"Display student performance",  display_student_performance},
+        {"Search for students",          search_students},
+        {"Sort student records",         sort_students},
+        {"Generate performance report",  generate_report},
+        {"Export report to a text file", export_report},
         {"Exit program",                 exit_program}
     };
     const size_t menu_size = sizeof menu / sizeof menu[0];

@@ -7,6 +7,8 @@ typedef struct {
 } MenuItem;
 
 int main(int argc, char *argv[]) {
+    setvbuf(stdout, NULL, _IONBF, 0); /* show prompts immediately in online consoles */
+
     if (argc > 1)
         set_data_file(argv[1]);
 

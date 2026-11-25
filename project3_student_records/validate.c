@@ -22,11 +22,7 @@ void trim_whitespace(char *s) {
         s[--len] = '\0';
 }
 
-/*
- * Read one line into buf (at most size-1 characters, newline removed).
- * Over-long input is truncated and the remainder is discarded, so a buffer
- * can never overflow. Returns 1 on success, 0 on end-of-input.
- */
+/* Read one line into buf (at most size-1 characters, newline removed). */
 int read_line(const char *prompt, char *buf, size_t size) {
     if (prompt != NULL) {
         printf("%s", prompt);
@@ -90,9 +86,15 @@ int read_nonempty(const char *prompt, char *buf, size_t size) {
         if (!read_line(prompt, buf, size))
             return 0;
         trim_whitespace(buf);
-        if (buf[0] != '\0')
-            return 1;
-        printf("  Input cannot be empty.\n");
+        if (buf[0] == '\0') {
+            printf("  Input cannot be empty.\n");
+            continue;
+        }
+        if (strchr(buf, '|') != NULL) {
+            printf("  The '|' character is not allowed.\n");
+            continue;
+        }
+        return 1;
     }
 }
 
@@ -119,7 +121,7 @@ int read_name(const char *prompt, char *buf, size_t size) {
     }
 }
 
-/* Ask a yes/no question.*/
+/* Ask a yes/no question. Returns 1 for yes, 0 for no (or EOF). */
 int confirm(const char *prompt) {
     char buf[8];
     for (;;) {

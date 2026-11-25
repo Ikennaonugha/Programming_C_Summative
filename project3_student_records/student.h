@@ -6,7 +6,6 @@
 #include <string.h>
 #include <ctype.h>
 
-/*Constants*/
 #define INITIAL_CAPACITY 10
 #define CAPACITY_STEP     5
 #define MAX_STR          50
@@ -16,10 +15,8 @@
 #define MIN_YEAR          1
 #define MAX_YEAR          6
 #define COURSE_CAPACITY_STEP 4
-#define MAX_COURSE_MARKS  1000.0f
-#define PASS_PERCENT      50.0f 
-
-/*Data Structures*/
+#define MAX_COURSE_MARKS  1000.0f 
+#define PASS_PERCENT      50.0f
 
 /* One course result belonging to a student. */
 typedef struct {
@@ -31,14 +28,14 @@ typedef struct {
 
 /* A student owns a dynamically allocated array of Course records. */
 typedef struct {
-    int    id; 
+    int    id;
     char   first_name[MAX_STR];
     char   last_name[MAX_STR];
     char   programme[MAX_STR];
-    int    year;
-    int    course_count;
+    int    year; 
+    int    course_count; 
     int    course_capacity;
-    Course *courses;
+    Course *courses; 
 } Student;
 
 /* Growable array of pointers to heap-allocated students. */
@@ -48,12 +45,13 @@ typedef struct {
     size_t    capacity;
 } StudentRegistry;
 
+/* Shared global registry (defined in operations.c) */
 extern StudentRegistry registry;
 
 /* Function pointer type used by the menu jump table */
 typedef void (*OperationFunc)(void);
 
-/*validate.c*/
+/* validate.c */
 void clear_input_buffer(void);
 void trim_whitespace(char *s);
 int  read_line(const char *prompt, char *buf, size_t size);
@@ -63,7 +61,7 @@ int  read_nonempty(const char *prompt, char *buf, size_t size);
 int  read_name(const char *prompt, char *buf, size_t size);
 int  confirm(const char *prompt);
 
-/*operations.c*/
+/* operations.c */
 void     print_header(void);
 int      init_registry(void);
 void     free_student(Student *s);
@@ -78,7 +76,7 @@ void update_student(void);
 void delete_student(void);
 void exit_program(void);
 
-/*courses.c*/
+/* courses.c */
 float    course_percentage(const Course *c);
 int      course_passed(const Course *c);
 int      calculate_student_average(const Student *s, float *out_percent);
@@ -88,8 +86,13 @@ void add_course(void);
 void update_marks(void);
 void display_student_performance(void);
 
-/*search_sort.c*/
+/* search_sort.c */
+int  str_casecmp(const char *a, const char *b);
 void search_students(void);
 void sort_students(void);
+
+/* reports.c */
+void generate_report(void);
+void export_report(void);
 
 #endif

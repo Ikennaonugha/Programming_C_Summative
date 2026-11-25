@@ -88,7 +88,7 @@ void add_course(void);
 void update_marks(void);
 void display_student_performance(void);
 
-/*search_sort.c 
+/*search_sort.c*/
 void search_students(void);
 void sort_students(void);
 

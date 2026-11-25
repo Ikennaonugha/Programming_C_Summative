@@ -1,7 +1,7 @@
 #include "student.h"
 
-/* Compare two strings ignoring case. <0, 0 or >0 like strcmp(). */
-static int str_casecmp(const char *a, const char *b) {
+/* Compare two strings ignoring case. */
+int str_casecmp(const char *a, const char *b) {
     while (*a != '\0' && *b != '\0') {
         int ca = tolower((unsigned char)*a);
         int cb = tolower((unsigned char)*b);
@@ -170,6 +170,7 @@ static int compare_by_programme(const Student *a, const Student *b) {
     return compare_by_name(a, b);
 }
 
+/* Sort an array of student pointers in place with insertion sort. */
 static void insertion_sort(Student **arr, size_t n, StudentComparator cmp, int descending) {
     for (size_t i = 1; i < n; i++) {
         Student *key = arr[i];

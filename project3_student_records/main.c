@@ -6,9 +6,24 @@ typedef struct {
     OperationFunc func;
 } MenuItem;
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    if (argc > 1)
+        set_data_file(argv[1]);
+
     if (!init_registry())
         return EXIT_FAILURE;
+
+    switch (load_records_file()) {
+        case LOAD_OK:
+            printf("Loaded %zu student(s) from '%s'.\n", registry.size, get_data_file());
+            break;
+        case LOAD_MISSING:
+            printf("No data file '%s' found. Starting with an empty registry.\n", get_data_file());
+            break;
+        case LOAD_ERROR:
+            printf("Could not load '%s'. Starting with an empty registry.\n", get_data_file());
+            break;
+    }
 
     /* Jump table: menu choices map to functions through function pointers. */
     const MenuItem menu[] = {
@@ -24,6 +39,8 @@ int main(void) {
         {"Sort student records",         sort_students},
         {"Generate performance report",  generate_report},
         {"Export report to a text file", export_report},
+        {"Save records to file",         save_records},
+        {"Load records from file",       reload_records},
         {"Exit program",                 exit_program}
     };
     const size_t menu_size = sizeof menu / sizeof menu[0];

@@ -1,4 +1,4 @@
-# Sales Transaction Processing and Analysis System (C)
+# Sales Transaction Processing and Analysis System
 
 A menu-driven C application for recording and analysing sales transactions for a small business.
 It demonstrates **function pointers**, **callback functions**, **dynamic memory allocation**,
@@ -39,10 +39,6 @@ sales-system/
 ├── src/                Implementation (one .c file per header, plus main.c)
 ├── data/
 │   └── transactions.txt   Sample records (12 transactions), loaded at start-up
-├── docs/
-│   ├── EVIDENCE.md             Organised evidence: function pointers, callbacks, search, sort, report, files
-│   ├── sample_run_input.txt    Keystrokes used for the demonstration run
-│   └── sample_run_output.txt   Full program output (evidence)
 └── Makefile
 ```
 
@@ -77,17 +73,3 @@ The total amount is not stored; it is recomputed as `quantity * unit_price` on l
 ```
 1001|Rice (50kg bag)|3|78500.0000|2026-10-02
 ```
-
-## Evidence
-
-`docs/EVIDENCE.md` is the organised evidence document (annotated code plus real output for every required feature). `docs/sample_run_output.txt` is the complete output of a scripted session (keystrokes in
-`docs/sample_run_input.txt`) showing: duplicate-ID and invalid-input rejection, add/update/delete,
-function-pointer execution (`[function pointer] executing: ...`), callback processing
-(`[callback] ...`), searching, all four sorts, the sales report, saving and loading. Reproduce it with:
-
-```bash
-cp -r data /tmp/demo_data
-./sales_system /tmp/demo_data/transactions.txt < docs/sample_run_input.txt
-```
-
-The program was also built with `-fsanitize=address,undefined` and run on the same session with no errors or leaks reported.

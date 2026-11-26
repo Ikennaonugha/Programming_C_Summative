@@ -1,0 +1,6 @@
+The Internet of Things (IoT) connects everyday devices to the internet.
+Smart homes rely on IoT sensors to monitor temperature and motion.
+Without a network connection, a device is not part of the system.
+iot platforms collect data from thousands of sensors.
+IoT IoT IoT: three matches on this single line.
+Security is a major concern for any IoT deployment.

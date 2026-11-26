@@ -1,0 +1,4 @@
+Cloud computing provides on-demand computing resources.
+Edge devices send IoT telemetry to the cloud for analysis.
+Machine learning models can predict equipment failure.
+Industrial iot systems reduce downtime in factories.

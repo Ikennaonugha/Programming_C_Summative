@@ -1,0 +1,4 @@
+Operating systems manage hardware and software resources.
+Threads allow a program to perform several tasks at once.
+POSIX threads are created with pthread_create and joined with pthread_join.
+This file never mentions the keyword, so zero matches are expected.

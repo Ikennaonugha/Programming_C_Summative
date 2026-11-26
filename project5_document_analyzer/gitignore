@@ -1,0 +1,13 @@
+# Compiled program and object files
+document_analyzer
+*.o
+*.out
+
+# Generated report files
+*_report.txt
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store

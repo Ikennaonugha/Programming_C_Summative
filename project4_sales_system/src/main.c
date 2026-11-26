@@ -39,4 +39,3 @@ int main(int argc, char *argv[])
     store_free(&app.store);
     return 0;
 }
-

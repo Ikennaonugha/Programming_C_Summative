@@ -1,5 +1,7 @@
 # Programming_C_Summative
 
+
+## Repository Structure
 ```bash
 .
 ├── project1_occupancy_monitor
